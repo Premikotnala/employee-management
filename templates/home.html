@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      color: #2d2d2d;
+      line-height: 1.7;
+    }
+    html { scroll-behavior: smooth; }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 12px 25px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #374151;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #1d4ed8;
+    }
+    .btn {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #fff !important;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      transform: scale(1.05);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #1d4ed8;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        background: #fff;
+        position: absolute;
+        top: 65px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: block; }
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #1e3a8a;
+    }
+    section p {
+      font-size: 1.1rem;
+      color: #4b5563;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 40px;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">EMS</a>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#employees">Employee Management</a></li>
+        <li><a href="#contact" class="btn">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h1>Welcome to Employee Management System</h1>
+    <p>Smart Employee Management made simple and efficient.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="card">
+      <h2>About Our Employee Management System</h2>
+      <p>
+        Our <strong>Employee Management System</strong> simplifies and automates HR operations, 
+        empowering organizations to manage employee data, attendance, performance tracking, 
+        payroll, and reporting — all in one intuitive platform.
+      </p>
+      <p>
+        Built with <strong>security, scalability, and usability</strong> in mind, our system helps 
+        businesses streamline processes, boost efficiency, and make data-driven decisions with confidence.
+      </p>
+      <a href="#contact" class="btn">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>We provide tools to manage HR processes, payroll, attendance, and reporting effectively.</p>
+  </section>
+
+  <!-- Employee Management Section -->
+  <section id="employees">
+    <h2>Employee Management</h2>
+    <p>Manage employee records, performance, and organizational structure with ease.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Reach out for demos, support, or collaboration opportunities.</p>
+    <a href="mailto:contact@ems.com" class="btn">Email Us</a>
+  </section>
+
+  <script>
+    // Toggle mobile menu
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Highlight active link on scroll
+      const sections = document.querySelectorAll("section");
+      const navItems = document.querySelectorAll(".nav-links li a");
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(sec => {
+          const sectionTop = sec.offsetTop - 80;
+          if (scrollY >= sectionTop) {
+            current = sec.getAttribute("id");
+          }
+        });
+        navItems.forEach(a => {
+          a.classList.remove("active");
+          if (a.getAttribute("href") === "#" + current) {
+            a.classList.add("active");
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

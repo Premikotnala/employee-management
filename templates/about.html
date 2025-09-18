@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Employee Management System</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            color: #2d2d2d;
+            line-height: 1.7;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 70px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Heading */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraph */
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #4b5563;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 15px rgba(37,99,235,0.3);
+        }
+
+        strong {
+            color: #2563eb;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                margin: 40px 20px;
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <h1>About Our Employee Management System</h1>
+        <p>
+            Our <strong>Employee Management System</strong> simplifies and automates HR operations, 
+            empowering organizations to manage employee data, attendance, performance tracking, 
+            payroll, and reporting — all in one intuitive platform.
+        </p>
+        <p>
+            Built with <strong>security, scalability, and usability</strong> in mind, our system helps 
+            businesses streamline processes, boost efficiency, and make data-driven decisions with confidence.
+        </p>
+        <a href="contact.html" class="btn">Contact Us</a>
+    </div>
+
+</body>
+</html>
